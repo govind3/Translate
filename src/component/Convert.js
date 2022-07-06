@@ -1,19 +1,19 @@
-import React, { useState, useEffect } from 'react';
-import axios from 'axios';
+import React, { useState, useEffect } from "react";
+import axios from "axios";
 
 const Convert = ({ language, text }) => {
-  const [translated, setTranslated]=useState('');
-  
+  const [translated, setTranslated] = useState("");
+
   useEffect(() => {
-    const doTranslation =async()=>{
-      const {data}=await axios.post(
-        'https://translation.googleapis.com/language/translate/v2',
+    const doTranslation = async () => {
+      const { data } = await axios.post(
+        "https://translation.googleapis.com/language/translate/v2",
         {},
         {
           params: {
             q: text,
             target: language.value,
-            key: 'AIzaSyCHUCmpR7cT_yDFHC98CZJy2LTms-IwDlM',
+            key: "AIzaSyCHUCmpR7cT_yDFHC98CZJy2LTms-IwDlM",
           },
         }
       );
@@ -24,7 +24,7 @@ const Convert = ({ language, text }) => {
 
   return (
     <div>
-      <h1 className='ui header'>{translated}</h1>
+      <h1 className="ui header">{translated}</h1>
     </div>
   );
 };
